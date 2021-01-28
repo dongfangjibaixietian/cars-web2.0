@@ -2,7 +2,7 @@
   <div class="cars-wrap">
     <div class="cars-swiper-wrap">
       <swiper class="swiper" :options="swiperOption">
-        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList :height="height1"/></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
@@ -28,13 +28,14 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 2,
-        spaceBetween: 70,
+        slidesPerView: 3,
+        spaceBetween: 50,
         navigation: {
-          nextEl: "button-next",
-          prevEl: "button-prev",
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
       },
+      height1: "800px",
     };
   },
   methods: {
@@ -61,6 +62,7 @@ export default {
   .swiper-container {
     overflow: initial;
   }
+  .swiper-button-prev,
   .swiper-button-next {
     top: 50%;
     width: 60px;
