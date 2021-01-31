@@ -92,6 +92,7 @@
           <i class="float-right current"></i>
         </div>
       </div>
+      <a href="javascript: void(0);" class="select-car-btn">预约用车</a>
     </section>
   </div>
 </template>
@@ -159,6 +160,23 @@ export default {
       }
     }
   }
+.select-car-btn {
+  position: absolute;
+  left: 50%;
+  margin-left: -42px;
+  bottom: -42px;
+  display: block;
+  width: 240px;
+  height: 84px;
+  margin: 0 17px;
+  border-radius: 100px;
+  line-height: 84px;
+  text-align: center;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 300;
+  background-color: $color-main;
+}
 }
 
 header {
@@ -366,7 +384,7 @@ header {
     border-left: 2px solid #fff;
     border-bottom: 2px solid #fff;
     transform: rotate(-45deg);
-
   }
 }
+
 </style>
