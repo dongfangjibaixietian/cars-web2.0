@@ -56,6 +56,7 @@ export default {
     z-index: 10;
     width: 410px;
     background-color: #34393f;
+    box-shadow: -5px 0 38px 0 rgba(0, 0, 0, .4);
     -webkit-transition: all .3s  ease 0s;
     -moz-transition: all .3s  ease 0s;
     -ms-transition: all .3s  ease 0s;
