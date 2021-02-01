@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./plugin/aMap"
+import "./components/back"
 
 Vue.config.productionTip = false;
 

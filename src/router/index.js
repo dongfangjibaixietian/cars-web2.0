@@ -20,6 +20,11 @@ const routes = [
         path: "/user",
         name: "User",
         component: () => import("../views/user/index")
+      },
+      {
+        path: "/safe",
+        name: "Safe",
+        component: () => import("../views/safe/index")
       }
     ],
   },

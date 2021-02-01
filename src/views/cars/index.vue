@@ -2,7 +2,7 @@
   <div class="cars-wrap">
     <div class="cars-swiper-wrap">
       <swiper class="swiper" :options="swiperOption">
-        <swiper-slide><CarsList :height="height1"/></swiper-slide>
+        <swiper-slide><CarsList :height="height1" /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
@@ -72,7 +72,7 @@ export default {
     outline: none;
     background-color: #fff;
     box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
-    transition: all .3s ease 0s;
+    transition: all 0.3s ease 0s;
     &.swiper-button-disabled {
       opacity: 1;
     }

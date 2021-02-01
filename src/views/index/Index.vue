@@ -1,7 +1,7 @@
 <template>
 
     <div class="wrap">
-        <div id="router-wrap" :class="[open ? 'user': '']">
+        <div id="router-wrap" :class="{open: show}">
             <router-view />
         </div>
         <!-- <Cars /> -->
@@ -21,7 +21,7 @@ export default {
     components: { Amap, Cars, NavBar},
     data(){
         return {
-            open:false
+            // open:false
         }
     },
     mounted() {
@@ -37,13 +37,19 @@ export default {
             }
         })
     },
-    watch: {
-        $route : {
-            handler(newValue) {
-                this.open = newValue.name == "User" ? true : false;
-            }
+    computed: {
+        show(){
+            const rotuer = this.$route;
+            return rotuer.name === "Index" ? false : true;
         }
-    }
+    },
+    // watch: {
+    //     $route : {
+    //         handler(newValue) {
+    //             this.open = newValue.name == "User" ? true : false;
+    //         }
+    //     }
+    // }
 }
 </script>
 
@@ -62,7 +68,7 @@ export default {
     -ms-transition: all .3s  ease 0s;
     -o-transition: all .3s  ease 0s;
     transition: all .3s ease 0s;
-    &.user {
+    &.open {
         right: 0;
     }
 
