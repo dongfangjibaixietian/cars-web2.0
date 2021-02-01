@@ -1,21 +1,50 @@
 <template>
   <div class="user-wrap">
-    <ul class="group-links">
-      <!--tag="a"意思是将router-link改为a标签  -->
-      <Back column="安全设置"></Back>
-      <router-link to="/password" tag="a" class="arrow"> 修改登录密码 </router-link>
-      <router-link to="aa" tag="a" class="arrow"> 设置资金密码 </router-link>
-      <router-link to="aa" tag="a" class="arrow"> 绑定手机号 </router-link>
-      <router-link to="aa" tag="a" class="arrow"> 绑定银行号 </router-link>
-    </ul>
+    <Back column="修改登录密码"></Back>
+    <div class="ele-ui">
+      <el-form ref="form" :model="form">
+        <el-form-item>
+          <el-input v-model="form.name" placeholder="原始密码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="form.name" placeholder="新密码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="form.name" placeholder="确认密码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <button type="button" class="button-vcode">获取验证码</button>
+          <el-input v-model="form.name" placeholder="验证码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit" class="button-black">确定</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "User",
+  name: "Password",
   data() {
-    return {};
+    return {
+      form: {
+        name: "",
+        region: "",
+        date1: "",
+        date2: "",
+        delivery: false,
+        type: [],
+        resource: "",
+        desc: "",
+      },
+    };
+  },
+  methods: {
+    onSubmit() {
+      console.log("submit!");
+    },
   },
 };
 </script>
@@ -101,5 +130,9 @@ export default {
   border-right: 1px solid #fff;
   transform: rotate(45deg);
   opacity: 0.1;
+}
+.button-black {
+  display: block;
+  width: 100%;
 }
 </style>
