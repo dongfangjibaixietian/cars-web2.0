@@ -23,7 +23,14 @@ export default {
                 zoom: this.zoom, //初始化地图层级
             });
         });
-    }
+    },
+    watch: {
+        "$store.state.location.selfLocation": {
+            handler() {
+                console.log(888)
+            }
+        }
+    },
 }
 </script>
 
