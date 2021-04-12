@@ -4,7 +4,7 @@
       <li><i class="icon icon-w-44 icon-help"></i></li>
       <li><i class="icon icon-w-44 icon-search"></i></li>
       <li><a class="select-car-btn">选择车辆</a></li>
-      <li><i class="icon icon-w-44 icon-location"></i></li>
+      <li><i class="icon icon-w-44 icon-location" @click="slocation"></i></li>
       <li><i class="icon icon-w-44 icon-user" @click="toUser"></i></li>
     </ul>
   </div>
@@ -18,7 +18,11 @@ export default {
       this.$router.push({
         name:"User",
       })
-    }
+    },
+    slocation () {
+      // 调用store里面的方法用commit
+      this.$store.commit("location/SELFLOCATION")
+    },
   }
 };
 </script>
