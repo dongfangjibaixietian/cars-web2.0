@@ -23,9 +23,6 @@ export default {
                 zoom: this.zoom, //初始化地图层级
             });
         });
-        this.$emit("callback",{
-            function: "loadMap"
-        })
     }
 }
 </script>
