@@ -16,14 +16,14 @@ export default {
   methods: {
     toUser() {
       this.$router.push({
-        name:"User",
-      })
+        name: "User",
+      });
     },
-    slocation () {
+    slocation() {
       // 调用store里面的方法用commit
-      this.$store.commit("location/SELFLOCATION")
+      this.$store.commit("location/SELFLOCATION");
     },
-  }
+  },
 };
 </script>
 
