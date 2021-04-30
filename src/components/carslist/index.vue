@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="cars-item">
+    <section class="cars-item" @click="getCarsInfo()">
       <header>
         <h4 class="cars-header">
           <img src="../../assets/images/cars-logo.png" alt="Mustang 2019款" />
@@ -39,11 +39,15 @@
         <a href="" class="cars-parking">某某停车场</a>
       </footer>
     </section>
-    <section class="cars-item cars-item-detail" :style="'height:' + height">
+    <section
+      class="cars-item cars-item-detail"
+      :style="'height:' + cars_info_height"
+      v-if="cars_info_show"
+    >
       <div class="scroll-swap">
         <h4 class="column">
           某某停车场
-          <i class="close"></i>
+          <i class="close" @click="infoClose()"></i>
         </h4>
         <header>
           <h4 class="cars-header">
@@ -100,10 +104,34 @@
 <script>
 export default {
   name: "CarsList",
-  props: {
-    height: {
-      type: String,
-      default: "",
+  props: {},
+  data() {
+    return {
+      cars_info_show: false,
+      cars_info_height: "",
+      timer: null,
+    };
+  },
+  methods: {
+    getCarsInfo() {
+      this.infoOpen()
+    },
+    infoOpen() {
+      // 获取页面可视区的高度方法
+      const viewHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      const height = viewHeight - 115;
+      this.cars_info_show = true;
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
+        this.cars_info_height = `${height}px`;
+        clearTimeout(this.timer);
+      }, 5);
+    },
+    infoClose() {
+      this.cars_info_show = false;
+      this.cars_info_height = "0px";
     },
   },
 };
@@ -160,23 +188,23 @@ export default {
       }
     }
   }
-.select-car-btn {
-  position: absolute;
-  left: 50%;
-  margin-left: -42px;
-  bottom: -42px;
-  display: block;
-  width: 240px;
-  height: 84px;
-  margin: 0 17px;
-  border-radius: 100px;
-  line-height: 84px;
-  text-align: center;
-  color: #fff;
-  font-size: 26px;
-  font-weight: 300;
-  background-color: $color-main;
-}
+  .select-car-btn {
+    position: absolute;
+    left: 25%;
+    margin-left: -42px;
+    bottom: -42px;
+    display: block;
+    width: 240px;
+    height: 84px;
+    margin: 0 17px;
+    border-radius: 100px;
+    line-height: 84px;
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 300;
+    background-color: $color-main;
+  }
 }
 
 header {
@@ -386,5 +414,4 @@ header {
     transform: rotate(-45deg);
   }
 }
-
 </style>

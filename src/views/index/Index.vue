@@ -3,7 +3,7 @@
     <div id="router-wrap" :class="{ open: show }">
       <router-view />
     </div>
-    <!-- <Cars /> -->
+    <Cars />
     <NavBar />
     <Amap />
   </div>
@@ -21,18 +21,6 @@ export default {
     return {
       // open:false
     };
-  },
-  mounted() {
-    document.addEventListener("mouseup", (e) => {
-      var userdiv = document.getElementById("router-wrap");
-      // 打印后会发现。e.target显示的是当前点击的具体div块的内容
-      console.log(e.target);
-      if (userdiv && !userdiv.contains(e.target)) {
-        this.$router.push({
-          name: "Index",
-        });
-      }
-    });
   },
   computed: {
     show() {

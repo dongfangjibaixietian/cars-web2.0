@@ -45,6 +45,16 @@ export default {
     //   });
     // },
   },
+  watch: {
+    "$store.state.app.isClickCarsList": {
+      handler(newValue) {
+        if(!newValue) {
+          console.log(newValue)
+        };
+        this.$store.commit("app/SET_CARS_LIST_STATUS",true)
+      },
+    },
+  }
 };
 </script>
 
@@ -57,8 +67,8 @@ export default {
   z-index: 11;
 }
 .cars-swiper-wrap {
+  position: relative;
   padding: 0px 155px;
-  .swiper-button-prev,
   .swiper-container {
     overflow: initial;
   }
@@ -78,6 +88,15 @@ export default {
     }
     &:hover {
       background-color: $color-main;
+      &:after {
+        border-top: 3px solid;
+      }
+    }
+    &:after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-top: 3px solid #000;
     }
   }
 
