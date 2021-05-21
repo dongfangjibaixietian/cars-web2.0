@@ -1,46 +1,46 @@
 <template>
   <div class="user-wrap">
-    <div class="user-info">
-      <img src="../../assets/images/face.png" alt="">
-      <div class="meta">
-        <h4 class="name">409019683@qq.com</h4>
-        <span>文明驾驶分
-          <strong>0</strong>
-        </span>
-      </div>
+    <Back column="修改手机密码"></Back>
+    <div class="ele-ui">
+      <el-form ref="form" :model="form">
+        <el-form-item>
+         <phoneNumber :phoneNumber.sync="form.name" placeholder="传入"/>
+        </el-form-item>
+        <el-form-item>
+          <el-input placeholder="新密码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input placeholder="确认密码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <button type="button" class="button-vcode">获取验证码</button>
+          <el-input placeholder="验证码"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit" class="button-black">确定</el-button>
+        </el-form-item>
+      </el-form>
     </div>
-    <ul class="group-links">
-      <!--tag="a"意思是将router-link改为a标签  -->
-      <router-link to="/account" tag="a" class="arrow">
-        <i class="icon icon-user-link-1"></i>
-        我的帐户
-      </router-link>
-      <router-link to="aa" tag="a" class="arrow">
-        <i class="icon icon-user-link-2"></i>
-        租车订单
-      </router-link>
-      <router-link to="aa" tag="a" class="arrow">
-        <i class="icon icon-user-link-3"></i>
-        实名认证
-      </router-link>
-      <router-link to="/safe" tag="a" class="arrow">
-        <i class="icon icon-user-link-4"></i>
-        安全设置
-      </router-link>
-      <router-link to="aa" tag="a" class="arrow">
-        <i class="icon icon-user-link-5"></i>
-        帮助中心
-      </router-link>
-    </ul>
-    <button class="logout">登出</button>
   </div>
 </template>
 
 <script>
+import phoneNumber from "../../components/account/phonenumber";
 export default {
-  name: "User",
+  name: "Username",
+  components: { phoneNumber },
   data() {
-    return {};
+    return {
+      form: {
+        name: "",
+        
+      },
+    };
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.form);
+    },
   },
 };
 </script>
@@ -89,8 +89,8 @@ export default {
     height: 64px;
     line-height: 64px;
     // color是字体颜色，background-color是背景颜色
-    color: rgba(255, 255, 255, .4);
-    border-bottom: 1px solid rgba(255, 255, 255, .03);
+    color: rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     font-size: 15px;
   }
   .icon {
@@ -125,6 +125,10 @@ export default {
   border-top: 1px solid #fff;
   border-right: 1px solid #fff;
   transform: rotate(45deg);
-  opacity: .1;
+  opacity: 0.1;
+}
+.button-black {
+  display: block;
+  width: 100%;
 }
 </style>

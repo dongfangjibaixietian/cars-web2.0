@@ -3,7 +3,7 @@
     <div id="router-wrap" :class="{ open: show }">
       <router-view />
     </div>
-    <Cars />
+    <!-- <Cars /> -->
     <NavBar />
     <Amap />
   </div>

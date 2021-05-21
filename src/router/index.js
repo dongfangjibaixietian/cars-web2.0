@@ -30,7 +30,12 @@ const routes = [
         path: "/password",
         name: "Password",
         component: () => import("../views/safe/password")
-      }
+      },
+      {
+        path: "/account",
+        name: "Account",
+        component: () => import("../views/account/username")
+      },
     ],
   },
 ];
