@@ -24,5 +24,9 @@
         outline: none;
         border: none;
         cursor: pointer;
+        // 这是更改当前class类中div的某个属性的选择器，比如说
+        // 设置了disable属性，则可以在这个元素的disable属性生效
+        // 时触发样式代码
+        &[disabled] { background-color: red;}
     }
 }

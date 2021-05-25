@@ -4,7 +4,7 @@
     <div class="ele-ui">
       <el-form ref="form" :model="form">
         <el-form-item>
-         <phoneNumber :phoneNumber.sync="form.name" placeholder="传入"/>
+         <PhoneNumber :phoneNumber.sync="form.name" placeholder="传入"/>
         </el-form-item>
         <el-form-item>
           <el-input placeholder="新密码"></el-input>
@@ -13,8 +13,7 @@
           <el-input placeholder="确认密码"></el-input>
         </el-form-item>
         <el-form-item>
-          <button type="button" class="button-vcode">获取验证码</button>
-          <el-input placeholder="验证码"></el-input>
+          <Code :phoneNumber="form.name"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit" class="button-black">确定</el-button>
@@ -25,10 +24,12 @@
 </template>
 
 <script>
-import phoneNumber from "../../components/account/phonenumber";
+import PhoneNumber from "../../components/account/phonenumber";
+import Code from "../../components/code/index"
+
 export default {
   name: "Username",
-  components: { phoneNumber },
+  components: { PhoneNumber, Code },
   data() {
     return {
       form: {

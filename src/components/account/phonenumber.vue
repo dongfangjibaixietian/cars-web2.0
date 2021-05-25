@@ -21,7 +21,6 @@ export default {
     methods: {
         // 实时监听输入事件的方法
         enterInput() {
-            
             const copyValidData = valid_phone(this.phoneNumber);
             let value = copyValidData ? this.phoneNumber : "";
             this.$emit("update:phoneNumber",value)
