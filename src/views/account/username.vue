@@ -4,19 +4,17 @@
     <div class="ele-ui">
       <el-form ref="form" :model="form">
         <el-form-item>
-         <PhoneNumber :phoneNumber.sync="form.name" placeholder="传入"/>
+          <PhoneNumber :phoneNumber.sync="form.name" placeholder="传入" />
+        </el-form-item>
+        <Password :password.sync="form.password" :passwordConfirm.sync="form.passwordConfirm" />
+        <PasswordConfirm :passwordConfirm.sync="form.passwordConfirm"/>
+        <el-form-item>
+          <Code :phoneNumber="form.name" />
         </el-form-item>
         <el-form-item>
-          <el-input placeholder="新密码"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-input placeholder="确认密码"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <Code :phoneNumber="form.name"/>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit" class="button-black">确定</el-button>
+          <el-button type="primary" @click="onSubmit" class="button-black"
+            >确定</el-button
+          >
         </el-form-item>
       </el-form>
     </div>
@@ -25,23 +23,32 @@
 
 <script>
 import PhoneNumber from "../../components/account/phonenumber";
-import Code from "../../components/code/index"
+import Password from "../../components/account/password";
+import Code from "../../components/code/index";
+import PasswordConfirm from "../../components/account/passwordConfirm";
+import { Register } from "../../api/account";
 
 export default {
   name: "Username",
-  components: { PhoneNumber, Code },
+  components: { PhoneNumber, Code, Password, PasswordConfirm },
   data() {
     return {
       form: {
         name: "",
-        
+        password: "",
+        passwordConfirm: "",
       },
     };
   },
   methods: {
     onSubmit() {
-      console.log(this.form);
+      this.register()
     },
+    register() {
+      Register(this.form).then((res)=>{
+        console.log(res)
+      })
+    }
   },
 };
 </script>

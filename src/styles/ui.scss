@@ -13,12 +13,12 @@
         z-index: 2;
         top: 4px;
         right: 4px;
-        width: 100px;
+        
         height: 32px;
-        background-color: #34393f;
+        background-color: red;
         border-radius: 5px;
         text-align: center;
-        line-height: 32px;
+        
         font-size: 12px;
         color: #fff;
         outline: none;
@@ -27,6 +27,6 @@
         // 这是更改当前class类中div的某个属性的选择器，比如说
         // 设置了disable属性，则可以在这个元素的disable属性生效
         // 时触发样式代码
-        &[disabled] { background-color: red;}
+        &[disabled] { background-color: #34393f;}
     }
 }
