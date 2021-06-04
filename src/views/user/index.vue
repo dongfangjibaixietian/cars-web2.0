@@ -1,10 +1,11 @@
 <template>
   <div class="user-wrap">
     <div class="user-info">
-      <img src="../../assets/images/face.png" alt="">
+      <img src="../../assets/images/face.png" alt="" />
       <div class="meta">
-        <h4 class="name">409019683@qq.com</h4>
-        <span>文明驾驶分
+        <h4 class="name">{{ username }}</h4>
+        <span
+          >文明驾驶分
           <strong>0</strong>
         </span>
       </div>
@@ -32,7 +33,7 @@
         帮助中心
       </router-link>
     </ul>
-    <button class="logout">登出</button>
+    <button class="logout" @click="logout()">登出</button>
   </div>
 </template>
 
@@ -40,7 +41,14 @@
 export default {
   name: "User",
   data() {
-    return {};
+    return {
+      username: this.$store.state.account.username,
+    };
+  },
+  methods: {
+    logout() {
+      alert("11");
+    },
   },
 };
 </script>
@@ -89,8 +97,8 @@ export default {
     height: 64px;
     line-height: 64px;
     // color是字体颜色，background-color是背景颜色
-    color: rgba(255, 255, 255, .4);
-    border-bottom: 1px solid rgba(255, 255, 255, .03);
+    color: rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     font-size: 15px;
   }
   .icon {
@@ -125,6 +133,6 @@ export default {
   border-top: 1px solid #fff;
   border-right: 1px solid #fff;
   transform: rotate(45deg);
-  opacity: .1;
+  opacity: 0.1;
 }
 </style>

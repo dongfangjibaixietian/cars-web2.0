@@ -4,7 +4,7 @@
     <div class="ele-ui">
       <el-form ref="form" :model="form">
         <el-form-item>
-          <PhoneNumber :phoneNumber.sync="form.phoneName" placeholder="传入" />
+          <PhoneNumber :phoneNumber.sync="form.phoneName" placeholder="忘记密码" />
         </el-form-item>
         <Password :password.sync="form.password" :passwordConfirm.sync="form.passwordConfirm" />
         <PasswordConfirm :passwordConfirm.sync="form.passwordConfirm"/>
@@ -51,14 +51,9 @@ export default {
         password: this.form.password,
         code: this.form.code
       };
-      // 调用vuex里面的store中的actions方法
-      this.$store.dispatch("account/registerAction",requestData).then(res => {
-        this.$message({
-          type: "success",
-          message: res.message
-        });
-        this.$router.replace({
-          name: "Login"
+      Register(requestData).then((res)=>{
+        this.$router.push({
+          name: "User",
         })
       })
     }

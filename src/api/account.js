@@ -5,7 +5,7 @@ import service from "../utils/request";
 export function GetCode(data){
     return service.request({
         method: "post",
-        url: "/account/code/",
+        url: "/apiWeb/account/code/",
         data
     })
 }
@@ -16,7 +16,7 @@ export function GetCode(data){
 export function Register(data){
     return service.request({
         method: "post",
-        url: `/register/`,
+        url: "/apiWeb/account/register/",
         data
     })
 }

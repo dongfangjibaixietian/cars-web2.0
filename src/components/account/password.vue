@@ -42,8 +42,6 @@ export default {
     //表单验证方法
     validatePassword(rule, value, callback) {
       //效验规则
-      console.log(this.password);
-      console.log(this.passwordConfirm);
       if (!this.password || this.password == "") {
         return callback(new Error("密码不能为空"));
       } else if (!valid_password(this.password)) {
